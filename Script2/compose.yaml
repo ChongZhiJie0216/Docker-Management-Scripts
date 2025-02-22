@@ -1,0 +1,17 @@
+version: '3.8'
+services:
+  docker-manager:
+    image: docker-manager
+    container_name: docker-manager
+    environment:
+      - DOCKER_DIR=/data/docker/
+      - BACKUP_SOURCE=/data/docker/
+      - BACKUP_TARGET=/backup/docker/
+      - NUM_CORES=16
+      - WHITELIST_FOLDERS=MariaDB,Nextcloud,Redis
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /data/docker/:/data/docker/
+      - /backup/docker/:/backup/docker/
+    restart: always
+    command: ["backup"]
