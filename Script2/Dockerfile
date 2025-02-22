@@ -13,11 +13,11 @@ ENV WHITELIST_FOLDERS=""
 
 # 复制脚本
 WORKDIR /app
-COPY DockerCompose_Script2.bash /app/DockerCompose_Script2.bash
-RUN chmod +x /app/DockerCompose_Script2.bash
+COPY DockerCompose_Script2_Docker.bash /app/DockerCompose_Script2_Docker.bash
+RUN chmod +x /app/DockerCompose_Script2_Docker.bash
 
 # 运行时挂载 Docker 套接字
 VOLUME /var/run/docker.sock
 
 # 入口点
-ENTRYPOINT ["/app/DockerCompose_Script2.bash"]
+ENTRYPOINT ["/app/DockerCompose_Script2_Docker.bash"]
