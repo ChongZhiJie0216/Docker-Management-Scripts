@@ -2,7 +2,7 @@
 FROM alpine:latest
 
 # 安装必要工具
-RUN apk add --no-cache docker-cli pigz bash tar cron
+RUN apk add --no-cache docker-cli pigz bash tar
 
 # 设置默认环境变量
 ENV DOCKER_DIR=""
